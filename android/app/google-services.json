@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "762753715012",
+    "firebase_url": "https://medico-dad54.firebaseio.com",
+    "project_id": "medico-dad54",
+    "storage_bucket": "medico-dad54.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762753715012:android:ed9018b20042d486dbe511",
+        "android_client_info": {
+          "package_name": "com.example.medico"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "762753715012-jo2qhkr9a619rh7a2m5fd84sr7utqibr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZddPSEJdzCcm3VBY8Mv4VLWtmbbq44gM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "762753715012-jo2qhkr9a619rh7a2m5fd84sr7utqibr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
