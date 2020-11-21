@@ -11,6 +11,7 @@ import 'package:medico/services/auth.dart';
 class signin extends StatefulWidget {
   final Function toggle;
   signin(this.toggle);
+
   @override
   _signinState createState() => _signinState();
 }
@@ -33,6 +34,7 @@ class _signinState extends State<signin> {
         if (result != null)  {
           QuerySnapshot userInfoSnapshot =
           await DatabaseMethods().getUserInfo(emailEditingController.text);
+
           Navigator.pushReplacement(
               context, MaterialPageRoute(builder: (context) =>Menu() ));
 
@@ -41,6 +43,8 @@ class _signinState extends State<signin> {
               userInfoSnapshot.documents[0].data["userName"]);
           HelperFunctions.saveUserEmailSharedPreference(
               userInfoSnapshot.documents[0].data["userEmail"]);
+
+          //print(userInfoSnapshot.documents[0].data["userEmail"].toString());
 
         } else {
           setState(() {

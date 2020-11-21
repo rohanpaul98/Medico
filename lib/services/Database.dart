@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DatabaseMethods {
-  Future<void> addUserInfo(userData) async {
-    Firestore.instance.collection("users").add(userData).catchError((e) {
-      print(e.toString());
-    });
+
+  uploadUserInfo(userMap){
+    Firestore.instance.collection("users").add(userMap)
   }
+  
 
   getUserInfo(String email) async {
     return Firestore.instance

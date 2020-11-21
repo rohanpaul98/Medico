@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medico/Views/signin.dart';
 import 'package:medico/Widgets/widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:medico/services/Database.dart';
 import 'package:medico/services/auth.dart';
 
 import 'Mainmenu.dart';
@@ -15,6 +16,7 @@ class signup extends StatefulWidget {
 class _signupState extends State<signup> {
   bool isLoading = false;
   AuthMethods authMethods = new AuthMethods();
+  DatabaseMethods databaseMethods = new DatabaseMethods();
   final formkey = GlobalKey<FormState>();
 
 
@@ -29,6 +31,12 @@ class _signupState extends State<signup> {
       });
       authMethods.signUpWithEmailAndPassword(emailTextEditingController.text,
           passwordTextEditingController.text).then((val) {
+
+            Map<String,String> userInfoMap = {
+              "name":userNameTextEditingController.text,
+              "email":emailTextEditingController.text,
+            };
+            databaseMethods.uploadUserInfo(userInfoMap);
             Navigator.pushReplacement(context, MaterialPageRoute(
                 builder:(context) =>Menu()),
             );

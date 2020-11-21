@@ -10,6 +10,7 @@ class Menu extends StatefulWidget {
 
 class _MenuState extends State<Menu> {
   AuthMethods authMethods = new AuthMethods();
+  String var2;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,12 +31,10 @@ class _MenuState extends State<Menu> {
         ],
       ),
       body: Center(
-        child: Text('hi',
-        style: TextStyle(
-          color: Colors.white,
-        ),),
-      ),
-
+        child:Text(
+          'hello'
+        ),
+    ),
     );
   }
 }
