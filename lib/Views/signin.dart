@@ -1,8 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:medico/Views/Mainmenu.dart';
 import 'package:medico/Widgets/widget.dart';
+import 'package:medico/Helper/helperfunctions.dart';
+import 'package:medico/services/Database.dart';
+import 'package:medico/services/auth.dart';
 
 class signin extends StatefulWidget {
   final Function toggle;
@@ -15,11 +19,48 @@ class _signinState extends State<signin> {
   TextEditingController emailEditingController = new TextEditingController();
   TextEditingController passwordEditingController = new TextEditingController();
 
+  bool isLoading = false;
+  AuthMethods authMethods = new AuthMethods();
+  signIn() async {
+    if (formkey.currentState.validate()) {
+      setState(() {
+        isLoading = true;
+      });
+
+      await authMethods
+          .signInWithEmailAndPassword(emailEditingController.text,passwordEditingController.text)
+          .then((result) async {
+        if (result != null)  {
+          QuerySnapshot userInfoSnapshot =
+          await DatabaseMethods().getUserInfo(emailEditingController.text);
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) =>Menu() ));
+
+          HelperFunctions.saveUserLoggedInSharedPreference(true);
+          HelperFunctions.saveUserNameSharedPreference(
+              userInfoSnapshot.documents[0].data["userName"]);
+          HelperFunctions.saveUserEmailSharedPreference(
+              userInfoSnapshot.documents[0].data["userEmail"]);
+
+        } else {
+          setState(() {
+            isLoading = false;
+            //show snackbar
+          });
+        }
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBarMain(context),
-      body: SingleChildScrollView(
+      body: isLoading
+          ? Container(
+        child: Center(child: CircularProgressIndicator()),
+      )
+          :  SingleChildScrollView(
         child: Container(
           height: MediaQuery
               .of(context)
@@ -56,7 +97,7 @@ class _signinState extends State<signin> {
                   SizedBox(height: 16,),
                   GestureDetector(
                     onTap: (){
-                      check();
+                      signIn();
                     },
                     child: Container(
                       alignment: Alignment.center,
@@ -134,15 +175,6 @@ class _signinState extends State<signin> {
 
 
   }
-  Future<void> check()async{
-    final formState = formkey.currentState;
-    if(formState.validate()){
-      formState.save();
-    Future<AuthResult> user = FirebaseAuth.instance.signInWithEmailAndPassword(email:emailEditingController.text , password: passwordEditingController.text,);
-    Navigator.push(context, MaterialPageRoute(builder: (context)=>Menu()));
-    }
-  }
-
 }
 
 
