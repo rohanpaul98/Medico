@@ -33,7 +33,7 @@ class _signupState extends State<signup> {
           passwordTextEditingController.text).then((val) {
 
             Map<String,String> userInfoMap = {
-              "name":userNameTextEditingController.text,
+              "Name":userNameTextEditingController.text,
               "email":emailTextEditingController.text,
             };
             databaseMethods.uploadUserInfo(userInfoMap);
@@ -138,19 +138,24 @@ class _signupState extends State<signup> {
                   ),
                 ),
                 SizedBox(height: 16,),
-                Container(
-                  alignment: Alignment.center,
-                  width: MediaQuery
-                      .of(context)
-                      .size
-                      .width,
-                  padding: EdgeInsets.symmetric(vertical: 20),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(30)
+                GestureDetector(
+                  onTap: (){
+                    authMethods.googleSignIn();
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: MediaQuery
+                        .of(context)
+                        .size
+                        .width,
+                    padding: EdgeInsets.symmetric(vertical: 20),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30)
+                    ),
+                    child: Text('SignUp with Google',
+                      style: mediumTextStyle(),),
                   ),
-                  child: Text('SignUp with Google',
-                    style: mediumTextStyle(),),
                 ),
                 SizedBox(height: 16,),
                 Row(

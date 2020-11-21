@@ -124,27 +124,31 @@ class _signinState extends State<signin> {
                     ),
                   ),
                   SizedBox(height: 16,),
-                  Container(
-                    alignment: Alignment.center,
-                    width: MediaQuery
-                        .of(context)
-                        .size
-                        .width,
-                    padding: EdgeInsets.symmetric(vertical: 20),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30)
+                  GestureDetector(
+                    onTap: (){
+                      authMethods.googleSignIn();
+                    },
+                    child: Container(
+                      padding: EdgeInsets.symmetric(vertical: 16),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.white),
+                      width: MediaQuery.of(context).size.width,
+                      child: Text(
+                        "Sign In with Google",
+                        style:
+                        TextStyle(fontSize: 17, color: Colors.black,fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
-                    child: Text('SignIn with Google',
-                      style: mediumTextStyle(),),
                   ),
-                  SizedBox(height: 16,),
+                  SizedBox(height: 10,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       GestureDetector(
                         child: Container(
-                          padding: EdgeInsets.symmetric(vertical: 8),
+                          padding: EdgeInsets.symmetric(vertical: 6),
                           child: Text("Don't have an account?", style: TextStyle(
                             color: Colors.white,
                             fontSize: 17,
