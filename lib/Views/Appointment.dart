@@ -1,5 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:medico/Views/Dermatologist.dart';
+import 'package:medico/Views/Gynecoligist.dart';
+import 'package:medico/Views/Neurologist.dart';
+import 'package:medico/Views/Psychiatrist.dart';
+import 'package:medico/Views/cardiologist.dart';
+import 'package:medico/Views/categories.dart';
+import 'package:medico/Views/genphysician.dart';
+import 'package:medico/Views/orthopedic.dart';
 import 'package:medico/Widgets/widget.dart';
 
 class appointment extends StatelessWidget {
@@ -13,7 +21,7 @@ class appointment extends StatelessWidget {
             SizedBox(height: 10,),
            GestureDetector(
              onTap: (){
-               Dentist();
+               Navigator.push(context, MaterialPageRoute(builder: (context)=>Dentistcall()));
              },
              child: Container(
                alignment: Alignment.center,
@@ -33,7 +41,7 @@ class appointment extends StatelessWidget {
             SizedBox(height: 10,),
             GestureDetector(
               onTap: (){
-                Dermatologist();
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Dermatologistcall()));
               },
               child: Container(
                 alignment: Alignment.center,
@@ -53,7 +61,7 @@ class appointment extends StatelessWidget {
             SizedBox(height: 10,),
             GestureDetector(
               onTap: (){
-                OrthopedicSurgeon();
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Orthopediccall()));
               },
               child: Container(
                 alignment: Alignment.center,
@@ -73,7 +81,7 @@ class appointment extends StatelessWidget {
             SizedBox(height: 10,),
             GestureDetector(
               onTap: (){
-                GeneralPhysician();
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Pcall()));
               },
               child: Container(
                 alignment: Alignment.center,
@@ -93,7 +101,7 @@ class appointment extends StatelessWidget {
             SizedBox(height: 10,),
             GestureDetector(
               onTap: (){
-                Nuerologist();
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Ncall()));
               },
               child: Container(
                 alignment: Alignment.center,
@@ -102,7 +110,7 @@ class appointment extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(30),
                 ),
-                child: Text('Nuerologist',style: TextStyle(
+                child: Text('Neurologist',style: TextStyle(
                   color: Colors.black,
                   fontSize: 39,
                   fontWeight: FontWeight.bold,
@@ -111,24 +119,29 @@ class appointment extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10,),
-            Container(
-              alignment: Alignment.center,
-              height: 80,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: Text('Gynaecologist',style: TextStyle(
-                color: Colors.black,
-                fontSize: 39,
-                fontWeight: FontWeight.bold,
-              ),),
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>gcall()));
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 80,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Text('Gynaecologist',style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 39,
+                  fontWeight: FontWeight.bold,
+                ),),
 
+              ),
             ),
             SizedBox(height: 10,),
             GestureDetector(
               onTap: (){
-                Psychiatrist();
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Pycall()));
               },
               child: Container(
                 alignment: Alignment.center,
@@ -148,7 +161,7 @@ class appointment extends StatelessWidget {
             SizedBox(height: 10,),
             GestureDetector(
               onTap: (){
-                Cardiologist();
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>ccall()));
               },
               child: Container(
                 alignment: Alignment.center,

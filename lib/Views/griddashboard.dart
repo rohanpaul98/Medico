@@ -1,70 +1,141 @@
+//import 'dart:html';
+//import 'dart:js';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-class GridDashboard extends StatelessWidget{
-  Item item1 = new Item(
-    title:"Book an Appointment",
-    img:"Assets/Images/BookAppointment400.png",
-  );
-  Item item2 = new Item(
-  title:"Ambulance",
-  img:"Assets/Images/prescription.png"
-  );
-  Item item3 = new Item(
-    title:"Prescription",
-    img:"Assets/Images/prescription.png",
-  );
-  Item item4 = new Item(
-    title:"Medicine",
-    img:"Assets/Images/Medicines.jpg",
-  );
-  Item item5 = new Item(
-    title:"Settings",
-    img:"Assets/Images/setting.jpg",
-  );
-  Item item6 = new Item(
-    title:"Help",
-    img:"Assets/Images/help.png",
-  );
-
-
+import 'package:medico/Views/Ambulance.dart';
+import 'package:medico/Views/Appointment.dart';
+import 'package:medico/Views/Scanner.dart';
+class Dashboard extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    List<Item> mylist = [item1,item2,item3,item4,item5,item6];
     var color = 0xff453658;
-    return Flexible(
-      child: GridView.count(
-        childAspectRatio: 1.0,
-        padding: EdgeInsets.only(left: 16,right: 16),
-        crossAxisCount: 2,
-        crossAxisSpacing: 18,
-        mainAxisSpacing: 18,
-        children: mylist.map((data){
-          return Container(
-            decoration: BoxDecoration(color: Color(color),
-            borderRadius: BorderRadius.circular(10)),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Image.asset(data.img,width: 42,),
-                SizedBox(height: 14,),
-                Text(data.title,style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold
-                ),),
-                SizedBox(
-                  height: 14,
-                ),
-              ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(height: 10,),
+          GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>appointment()));
+            },
+            child: Container(
+              alignment: Alignment.center,
+              height: 60,
+              decoration: BoxDecoration(
+                color: Color(color),
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: Text('Book an Appointment',style: TextStyle(
+                color: Colors.white,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),),
+
             ),
-          );
-        }).toList(),
+          ),
+          SizedBox(height: 10,),
+          GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>app1()));
+            },
+            child: Container(
+              alignment: Alignment.center,
+              height: 60,
+              decoration: BoxDecoration(
+                color: Color(color),
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: Text('Ambulance',style: TextStyle(
+                color: Colors.white,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),),
+
+            ),
+          ),
+          SizedBox(height: 10,),
+          GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>MyApp()));
+            },
+            child: Container(
+              alignment: Alignment.center,
+              height: 60,
+              decoration: BoxDecoration(
+                color: Color(color),
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: Text('Prescriptions',style: TextStyle(
+                color: Colors.white,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),),
+
+            ),
+          ),
+          SizedBox(height: 10,),
+          GestureDetector(
+            onTap: (){
+              //Navigator.push(context, MaterialPageRoute(builder: (context)=>()));
+            },
+            child: Container(
+              alignment: Alignment.center,
+              height: 60,
+              decoration: BoxDecoration(
+                color: Color(color),
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: Text('Medicines',style: TextStyle(
+                color: Colors.white,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),),
+
+            ),
+          ),
+          SizedBox(height: 10,),
+          GestureDetector(
+            onTap: (){
+              //Navigator.push(context, MaterialPageRoute(builder: (context)=>book()));
+            },
+            child: Container(
+              alignment: Alignment.center,
+              height: 60,
+              decoration: BoxDecoration(
+                color: Color(color),
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: Text('Settings ',style: TextStyle(
+                color: Colors.white,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),),
+
+            ),
+          ),
+          SizedBox(height: 10,),
+          GestureDetector(
+            onTap: (){
+              //Navigator.push(context, MaterialPageRoute(builder: (context)=>book()));
+            },
+            child: Container(
+              alignment: Alignment.center,
+              height: 60,
+              decoration: BoxDecoration(
+                color: Color(color),
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: Text('Help',style: TextStyle(
+                color: Colors.white,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),),
+
+            ),
+          ),
+          SizedBox(height: 10,),
+
+        ],
       ),
     );
   }
-}
-class Item{
-  String title;
-  String img;
-  Item({this.title,this.img});
 }

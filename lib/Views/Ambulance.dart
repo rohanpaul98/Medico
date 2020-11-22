@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:medico/Widgets/widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 class app1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: app2(),
+    return Scaffold(
+      appBar: appBarMain(context),
+      body: app2(),
     );
   }
 }

@@ -5,6 +5,8 @@ import 'package:medico/Views/Ambulance.dart';
 import 'package:medico/Views/Appointment.dart';
 import 'package:medico/Views/Mainmenu.dart';
 import 'package:medico/Views/Scanner.dart';
+import 'package:medico/Views/griddashboard.dart';
+import 'Views/categories.dart';
 import 'file:///C:/Users/ROHAN%20PAUL/Desktop/medico/lib/Views/signin.dart';
 import 'package:medico/Views/signup.dart';
 void main() => runApp(medic());
@@ -22,7 +24,7 @@ class medic extends StatelessWidget {
         primarySwatch: Colors.amber,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home:appointment(),
+      home:Authenticate(),
     );
   }
 }

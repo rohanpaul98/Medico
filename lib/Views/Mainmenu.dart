@@ -68,8 +68,11 @@ class _MenuState extends State<Menu> {
                   ],
                 ),
                 IconButton(
-                  alignment: Alignment.topCenter,
-                    icon: Image.asset('Assets/Images/chatbot.png'),
+                  alignment: Alignment.topRight,
+                    icon: CircleAvatar(
+                      backgroundImage: AssetImage('Assets/Images/chatbot.png'),
+                      radius: 80,
+                    ),
                     onPressed: (){
                     String url='https://bot.dialogflow.com/13a7c4f3-3104-4af8-97c7-5ce9a4e29e78';
                     launch(url);
@@ -80,7 +83,7 @@ class _MenuState extends State<Menu> {
             ),
           ),
           SizedBox(height: 20,),
-          GridDashboard(),
+          Dashboard(),
         ],
       ),
 

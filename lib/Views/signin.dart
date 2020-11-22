@@ -86,6 +86,7 @@ class _signinState extends State<signin> {
                   TextField(
                     controller: passwordEditingController,
                     style: simpleTextFieldStyle(),
+                    obscureText: true,
                     decoration: textFieldInputDecoration("Password"),
                   ),
                   SizedBox(height: 10),
